@@ -1,25 +1,9 @@
-const loginForm = document.querySelector("#login-form");
 
+const loginForm = document.querySelector("#login-form");
+const registroUsuario = document.querySelector("#usuario");
 const errorUsuario = document.querySelector("#mensaje-error")
 
-// Obtener el nombre de usuario almacenado en el localStorage
- 
-
-
-function logearUsuario() {
-    const usuario = document.querySelector("#ingresar-usuario").value;
-    /* let UsernameLs = localStorage.getItem("#ingresar-usuario"); */
-    if (usuario === listaUsuarios) {
-        errorUsuario.innerHTML= "bienvenido";
-    } else {
-        errorUsuario.innerHTML = "Usuario incorrecto";
-    }
-}
- 
-
-
 //registro y almacenamiento localStore//
-const registroUsuario = document.querySelector("#usuario");
 
 const usuarios = "usuarios";
 const datosRegistro = "nombre y apellido";
@@ -34,11 +18,30 @@ function registrarUsuario() {
 
     let registroNombre = document.querySelector("#nombre").value;
     let registroApellido = document.querySelector("#apellido").value;
-    let nuevoUsuario = registroUsuario.value;
+    let usuarioRegistrado = registroUsuario.value;
 
     listaDatos.push(registroApellido, registroNombre);
-    listaUsuarios.push(nuevoUsuario);
+    listaUsuarios.push(usuarioRegistrado);
     localStorage.setItem(datosRegistro, JSON.stringify(listaDatos));
     localStorage.setItem(usuarios, JSON.stringify(listaUsuarios));
 
 }
+
+
+
+// Obtener el nombre de usuario almacenado en el localStorage
+ function logearUsuario() {
+    
+    const usuarioLogin = document.querySelector("#ingresar-usuario").value;
+     let localStoreName = localStorage.getItem("usuarios"); 
+
+    if ((localStoreName === usuarioLogin)) {
+        errorUsuario.innerHTML= "bienvenido";
+    } else {
+        /* errorUsuario.innerHTML = "Usuario incorrecto"; */
+        alert("incorrecto");
+    }
+}
+ 
+
+
