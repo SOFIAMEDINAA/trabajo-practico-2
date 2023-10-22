@@ -29,10 +29,12 @@
 
     <div class="contenedor-usuario">
         <h1>Turnos Web</h1>
-        <form id="login-form">
-            <input id="ingresar-usuario" type="text" placeholder="ingresar usuario" required>
-            <label for="ingresar-usuario"></label>
-            <button type="submit" onclick="logearUsuario()">ingresar</button>
+        <form id="iniciarSesionForm">
+            <input id="usuarioIniciarSesion" type="text" placeholder="ingresar usuario" required>
+            <label for="usuarioIniciarSesion"></label>
+            <input type="email" id="emailInicioSesion" placeholder="ingresar correo Electrónico" required><br>
+            <label for="emailInicioSesion"></label>
+            <button type="submit" >ingresar</button>
             <p id="mensaje-error"></p>
         </form>
     </div>
