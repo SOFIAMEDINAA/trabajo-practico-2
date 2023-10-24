@@ -1,24 +1,32 @@
-function seleccionarTurno() {
-    const selectedTurno = document.querySelector('.selected');
-    if (selectedTurno) {
-        const fechaHora = selectedTurno.textContent;
-        localStorage.setItem('turnoSeleccionado', fechaHora);
-        alert("Turno seleccionado: " + fechaHora + "\nGuardado en el Local Storage.");
-    } else {
-        alert("Por favor, selecciona un turno antes de guardar.");
+const listaTurnosElement = document.querySelector("#lista-turnos");
+let listaTurnos = JSON.parse(localStorage.getItem("turnos")) || [];
+
+function actualizarListaTurnos() {
+    listaTurnosElement.innerHTML = '';
+    listaTurnos.forEach(turno => {
+        const listItem = document.createElement("li");
+        listItem.innerText = `Servicio: ${turno.servicio}, Fecha: ${turno.fecha}, Hora: ${turno.hora}`;
+        listaTurnosElement.appendChild(listItem);
+    });
+}
+
+function guardarEnLocalStorage() {
+    localStorage.setItem("turnos", JSON.stringify(listaTurnos));
+}
+
+function tomarTurno() {
+    const fecha = document.querySelector("#fecha").value;
+    const hora = document.querySelector("#hora").value;
+    const servicio = document.querySelector("#selectServicios").value;
+
+    
+
+    if (fecha, hora, servicio) {
+        const turno = {servicio, fecha, hora};
+        listaTurnos.push(turno);
+        guardarEnLocalStorage();
+        actualizarListaTurnos();
     }
 }
 
-// Asignar la función a un botón
-document.getElementById('selectButton').addEventListener('click', seleccionarTurno);
-
-// Agregar la funcionalidad de selección de turno
-const turnos = document.querySelectorAll('.day:not(.day-header)');
-turnos.forEach(turno => {
-    turno.addEventListener('click', () => {
-        // Eliminar la clase "selected" de todos los turnos
-        turnos.forEach(t => t.classList.remove('selected'));
-        // Agregar la clase "selected" al turno seleccionado
-        turno.classList.add('selected');
-    });
-});
+actualizarListaTurnos();
