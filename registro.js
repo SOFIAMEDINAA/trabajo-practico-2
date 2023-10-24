@@ -18,3 +18,4 @@ document.addEventListener('submit', function (e) {
     alert("registro exitoso");
     this.reset();
 });
+
