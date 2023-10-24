@@ -1,9 +1,12 @@
-const nombreUsuario = document.querySelector("#nombreUsuario").value;
-const email = document.querySelector("#email").value; 
+const nombreUsuario = document.querySelector("#nombreUsuario");
+const email = document.querySelector("#email"); 
 
 function registrarUsuario(nombreUsuario, email,) {
     const usuariosRegistrados = JSON.parse(localStorage.getItem('usuarios')) || [];
-    usuariosRegistrados.push({ nombreUsuario, email });
+    usuariosRegistrados.push({ 
+       nombre: nombreUsuario.value, 
+       correo: email.value 
+    });
 
     localStorage.setItem('usuarios', JSON.stringify(usuariosRegistrados));
 
@@ -18,4 +21,5 @@ document.addEventListener('submit', function (e) {
     alert("registro exitoso");
     this.reset();
 });
+
 
