@@ -2,8 +2,13 @@ const nombreUsuario = document.querySelector("#nombreUsuario");
 const email = document.querySelector("#email"); 
 
 
-//Registra los usuarios y correos en el localStore
-function registrarUsuario(nombreUsuario, email,) {
+
+/**
+ * almacena los usuarios y correos en el localStore
+ * @param {string} nombreUsuario guarda el nombre de usuario
+ * @param {string} email guarda el correo electronico
+ */
+function registrarUsuario(nombreUsuario, email,) { 
     const usuariosRegistrados = JSON.parse(localStorage.getItem('usuarios')) || [];
     usuariosRegistrados.push({ 
        nombre: nombreUsuario.value, 
@@ -12,7 +17,7 @@ function registrarUsuario(nombreUsuario, email,) {
 
     localStorage.setItem('usuarios', JSON.stringify(usuariosRegistrados));
 
-}
+};
 
 document.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -21,7 +26,9 @@ document.addEventListener('submit', function (e) {
    registrarUsuario(nombreUsuario, email);
 
     alert("registro exitoso");
+    window.location.href = "index.html";
     formRegistro.reset();
+
 });
 
 

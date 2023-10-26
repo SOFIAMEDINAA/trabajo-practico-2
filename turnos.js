@@ -1,7 +1,9 @@
 const listaTurnosElement = document.querySelector("#lista-turnos");
 let listaTurnos = JSON.parse(localStorage.getItem("turnos")) || [];
 
-//actualiza la lista de turnos
+/**
+ * actualiza la lista de turnos
+ */
 function actualizarListaTurnos() {
     listaTurnosElement.innerHTML = '';
     listaTurnos.forEach(turno => {
@@ -11,7 +13,10 @@ function actualizarListaTurnos() {
     });
 }
 
-//almacena los turnos en el localStore
+
+/**
+ * almacena los turnos en el localStore
+ */
 function guardarEnLocalStorage() {
     localStorage.setItem("turnos", JSON.stringify(listaTurnos));
 }
@@ -21,14 +26,24 @@ function guardarEnLocalStorage() {
     return listaTurnos(turno => turno.fecha === fecha , turno.hora === hora, turno.servicio === servicio);
 }  */
 
-//permite que puedas sacar turno posterior a la fecha y hora actual
+
+
+/**
+ * permite que puedas sacar turno posterior a la fecha y hora actual
+ * @param {Number} fecha selecciona una fecha
+ * @param {Number} hora selecciona un horario
+ * @returns 
+ */
 function turnoEnElPasado(fecha, hora) {
     const ahora = new Date();
     const fechaHoraSeleccionada = new Date(`${fecha} ${hora}`);
     return fechaHoraSeleccionada < ahora;
 }
 
-//Agendar turnos
+
+/**
+ * Agenda turnos y los agrega a la lista
+ */
 function tomarTurno() {
     const fecha = document.querySelector("#fecha").value;
     const hora = document.querySelector("#hora").value;
@@ -46,4 +61,4 @@ function tomarTurno() {
         }
     }};
 
-    actualizarListaTurnos();
+    

@@ -55,12 +55,6 @@ h2 {
 }
 
 
-
-/* .form-datos {
-    margin-bottom: 20px;
-    text-align: left;
-}
- */
 label {
     display: block;
     margin-bottom: 5px;
@@ -80,5 +74,18 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+select{
+ background-color: #fff;
+}
+
+#listaTurnos{
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    display: grid;
+    place-content: center;
 }
 

@@ -36,21 +36,31 @@
         <option value="Kapping con semipermanente">Kapping con semipermanente</option>
         <option value="Esmalte Semipermanente en pies">Esmalte Semipermanente en pies</option>
         <option value="Uñas esculpidas">Uñas esculpidas</option>
-    
+
     </select>
-    
+
     <label for="fecha">Fecha:</label>
     <input type="date" id="fecha">
     <br>
-    
+
     <label for="hora">Hora:</label>
-    <input type="time" id="hora">
-    <br>
+    <select name="" id="hora">
+        <option value="0">Elegir Horarios</option>
+        <option value="10:00hs">10:00hs</option>
+        <option value="12:00hs">12:00hs</option>
+        <option value="14:00hs">14:00hs</option>
+        <option value="16:00hs">16:00hs</option>
+        <option value="18:00hs">18:00hs</option>
+
+
+    </select>
 
     <button onclick="tomarTurno()">Tomar Turno</button>
+    <div id="listaTurnos">
+        <h2>Turnos Agendados</h2>
+        <ul id="lista-turnos"></ul>
+    </div>
 
-    <h2>Turnos Agendados</h2>
-    <ul id="lista-turnos"></ul>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
