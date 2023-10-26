@@ -1,12 +1,12 @@
-const usuarioInicioSesion = document.querySelector("#usuarioIniciarSesion").value;
-const emailInicioSesion = document.querySelector("#emailInicioSesion").value;
 
+//inicia sesion
 document.addEventListener('submit', function (e) {
     e.preventDefault();
 
     const formInicioSesion = document.querySelector("#inicioSesionForm");
     const usuariosRegistrados = JSON.parse(localStorage.getItem('usuarios')) || [];
-
+    const usuarioInicioSesion = document.querySelector("#usuarioIniciarSesion").value;
+    const emailInicioSesion = document.querySelector("#emailInicioSesion").value;
 
     const usuarioEncontrado = usuariosRegistrados.find(user => user.nombreUsuario === usuarioInicioSesion && user.email === emailInicioSesion);
 
@@ -16,7 +16,7 @@ document.addEventListener('submit', function (e) {
         alert('Usuario o correo electrónico incorrectos');
     }
 
-    this.reset();
+    formInicioSesion.reset();
 });
 
 
